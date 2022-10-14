@@ -15,7 +15,9 @@ const ChannelDetail = () => {
 
       setChannelDetail(data?.items[0]);
 
-      const videosData = await fetchFromAPI(`search?channelId=${id}&part=snippet%2Cid&order=date`);
+      const videosData = await fetchFromAPI(
+        `search?channelId=${id}&part=snippet%2Cid&order=date`
+      );
 
       setVideos(videosData?.items);
     };
@@ -26,18 +28,19 @@ const ChannelDetail = () => {
   return (
     <Box minHeight="95vh">
       <Box>
-        <div style={{
-          background: 'linear-gradient(90deg, rgba(0,255,248,1) 0%, rgba(255,0,215,1) 100%)',
-          zIndex: 10,
-          height: '300px'
-        }}
+        <div
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(0,255,248,1) 0%, rgba(255,0,215,1) 100%)",
+            zIndex: 10,
+            height: "300px",
+          }}
         />
-        <ChannelCard channelDetail={ channelDetail }
-        marginTop= "-110px" />
+        <ChannelCard channelDetail={channelDetail} marginTop="-110px" />
       </Box>
       <Box display="flex" p="2">
-        <Box sx={{ mr: { sm: '100px' } }} />
-          <Videos  videos={videos}/>
+        <Box sx={{ mr: { sm: "100px" } }} />
+        <Videos videos={videos} />
       </Box>
     </Box>
   );
